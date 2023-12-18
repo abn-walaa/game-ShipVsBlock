@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Start</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background-color: #18151b;
+
+        }
+
+        .top {
+            margin: 50px auto;
+
+            width: fit-content;
+            background: #2d2734;
+            /* filter: blur(1px); */
+            padding: 14px;
+            border-radius: 20px;
+            z-index: 20;
+            color: white;
+
+        }
+
+        h1 {
+            margin-bottom: 50px;
+            font-size: 50px;
+        }
+
+        .top::after {
+            content: "";
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(234, 59, 59, 0.092);
+            /* filter: blur(1px); */
+            padding: 50px;
+            border-radius: 20px;
+            position: absolute;
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        .link {
+            font-size: 20px;
+            width: fit-content;
+            margin: auto;
+            background-color: #3e2f4e;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .link a {
+            text-decoration: none;
+            color: red;
+            background-color: #2d2734;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top">
+        <h1 class="">Wellcom to Spacse Game</h1>
+        <div class="link">
+            <a href="/index.html">Start</a>
+        </div>
+
+        <div>
+            <div>Last scor</div>
+            <ul id="add">
+            </ul>
+        </div>
+    </div>
+    <script>
+        let s = localStorage.getItem("scor")
+        if (!s) {
+            s = [];
+        } else {
+            s = JSON.parse(s)
+        }
+
+        s.forEach(e => {
+            console.log(e)
+            let li = document.createElement("li");
+            li.textContent = e;
+            document.getElementById("add").append(li)
+        })
+    </script>
+</body>
+
+</html>
